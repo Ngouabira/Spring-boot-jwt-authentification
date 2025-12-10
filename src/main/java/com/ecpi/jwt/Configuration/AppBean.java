@@ -1,6 +1,6 @@
 package com.ecpi.jwt.Configuration;
 
-import com.ecpi.jwt.exception.EntityNotFound;
+import com.ecpi.jwt.exception.EntityNotFoundException;
 import com.ecpi.jwt.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,7 @@ public class AppBean {
     @Bean
     public UserDetailsService userDetailsService(){
         return username -> userRepository.findByUsername(username)
-                .orElseThrow(() -> new EntityNotFound("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
     }
 
     @Bean

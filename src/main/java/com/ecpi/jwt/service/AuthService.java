@@ -2,7 +2,7 @@ package com.ecpi.jwt.service;
 
 import com.ecpi.jwt.dto.LoginDTO;
 import com.ecpi.jwt.dto.RegisterDTO;
-import com.ecpi.jwt.exception.EntityNotFound;
+import com.ecpi.jwt.exception.EntityNotFoundException;
 import com.ecpi.jwt.mapper.RegisterMapper;
 import com.ecpi.jwt.repository.UserRepository;
 import com.ecpi.jwt.response.AuthResponse;
@@ -61,7 +61,7 @@ public class AuthService {
             }
 
         }
-        throw new EntityNotFound("Email or password incorrect");
+        throw new EntityNotFoundException("Email or password incorrect");
 
     }
 
