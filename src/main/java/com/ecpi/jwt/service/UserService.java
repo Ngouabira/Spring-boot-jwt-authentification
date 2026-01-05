@@ -74,7 +74,7 @@ public class UserService {
 
     public DataResponse<UserDTO> search(String param, int page, int size) {
         Pageable pageRequest = PageRequest.of(page, size);
-        var data = userRepository.findByNameLikeAndUsernameLike("%"+param+"%","%"+param+"%", pageRequest);
+        var data = userRepository.findByUsernameLike("%"+param+"%","%"+param+"%", pageRequest);
         var content = data.getContent().stream().map(UserMapper::toDTO).toList();
         var totalPages = data.getTotalPages();
         var totalElements = data.getTotalElements();
